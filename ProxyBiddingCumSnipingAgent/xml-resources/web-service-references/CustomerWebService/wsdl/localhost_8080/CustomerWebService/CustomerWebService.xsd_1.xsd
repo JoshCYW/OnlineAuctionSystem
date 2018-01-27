@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.session.ejb/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.session.ejb/">
+
+<xs:element name="InvalidLoginCredentialException" type="tns:InvalidLoginCredentialException"/>
+
+<xs:element name="customerLogin" type="tns:customerLogin"/>
+
+<xs:element name="customerLoginResponse" type="tns:customerLoginResponse"/>
+
+<xs:element name="regsterPremiumCustomer" type="tns:regsterPremiumCustomer"/>
+
+<xs:element name="regsterPremiumCustomerResponse" type="tns:regsterPremiumCustomerResponse"/>
+
+<xs:complexType name="regsterPremiumCustomer">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="regsterPremiumCustomerResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="customerLogin">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customerLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customer">
+<xs:sequence>
+<xs:element name="addresses" type="tns:address" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="availableBalance" type="xs:decimal" minOccurs="0"/>
+<xs:element name="bids" type="tns:bid" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="creditBalance" type="xs:decimal" minOccurs="0"/>
+<xs:element name="creditTransactions" type="tns:creditTransaction" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="customerID" type="xs:long" minOccurs="0"/>
+<xs:element name="firstname" type="xs:string" minOccurs="0"/>
+<xs:element name="holdingBalance" type="xs:decimal" minOccurs="0"/>
+<xs:element name="identificationNo" type="xs:string" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="phoneNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="premium" type="xs:boolean" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element name="addressID" type="xs:long" minOccurs="0"/>
+<xs:element name="auctionList" type="tns:auctionListing" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="postalCode" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:boolean" minOccurs="0"/>
+<xs:element name="streetAddress" type="xs:string" minOccurs="0"/>
+<xs:element name="unitNumber" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auctionListing">
+<xs:sequence>
+<xs:element name="auctionListingID" type="xs:long" minOccurs="0"/>
+<xs:element name="bids" type="tns:bid" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="currentBid" type="xs:decimal" minOccurs="0"/>
+<xs:element name="deliveryAddress" type="tns:address" minOccurs="0"/>
+<xs:element name="employee" type="tns:employee" minOccurs="0"/>
+<xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+<xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="manualAssign" type="xs:boolean" minOccurs="0"/>
+<xs:element name="openListing" type="xs:boolean" minOccurs="0"/>
+<xs:element name="productName" type="xs:string" minOccurs="0"/>
+<xs:element name="reservePrice" type="xs:decimal" minOccurs="0"/>
+<xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="startingBid" type="xs:decimal" minOccurs="0"/>
+<xs:element name="winningBid" type="tns:bid" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bid">
+<xs:sequence>
+<xs:element name="auctionListing" type="tns:auctionListing" minOccurs="0"/>
+<xs:element name="bidAmt" type="xs:decimal" minOccurs="0"/>
+<xs:element name="bidID" type="xs:long" minOccurs="0"/>
+<xs:element name="bidTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="winningBid" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="employee">
+<xs:sequence>
+<xs:element name="accessRight" type="tns:employeeAccessRightEnum" minOccurs="0"/>
+<xs:element name="auctionListing" type="tns:auctionListing" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="creditPackages" type="tns:creditPackage" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="employeeID" type="xs:long" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creditPackage">
+<xs:sequence>
+<xs:element name="creditPackageID" type="xs:long" minOccurs="0"/>
+<xs:element name="creditPackageName" type="xs:string" minOccurs="0"/>
+<xs:element name="creditTransaction" type="tns:creditTransaction" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="employee" type="tns:employee" minOccurs="0"/>
+<xs:element name="enabled" type="xs:boolean" minOccurs="0"/>
+<xs:element name="numOfCredits" type="xs:decimal" minOccurs="0"/>
+<xs:element name="price" type="xs:decimal" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creditTransaction">
+<xs:sequence>
+<xs:element name="creditPackage" type="tns:creditPackage" minOccurs="0"/>
+<xs:element name="creditTransactionID" type="xs:long" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="transactionAmt" type="xs:decimal" minOccurs="0"/>
+<xs:element name="transactionType" type="tns:creditTransactionTypeEnum" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InvalidLoginCredentialException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="employeeAccessRightEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="FINANCE"/>
+<xs:enumeration value="SALES"/>
+<xs:enumeration value="SYSADMIN"/>
+</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="creditTransactionTypeEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="REFUND"/>
+<xs:enumeration value="TOPUP"/>
+<xs:enumeration value="USAGE"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
